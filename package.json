@@ -14,8 +14,9 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "start:https": "HTTPS=true node scripts/start.js",
-    "lint": "eslint --fix ./",
-    "commit": "git-cz",
+    "lint": "eslint --fix",
+    "prepare": "husky install",
+    "preinstall": "npx only-allow pnpm -y",
     "release": "standard-version",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
@@ -197,19 +198,24 @@
     ]
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix",
       "git add"
     ],
-    "src/*.{css,scss,less,json,html}": [
+    "src/*.{css,scss,less,json,html,yml}": [
       "prettier --write",
       "git add"
     ],
-    "*.md, *.markdown": [
+    "*.{md,markdown}": [
       "prettier --write --parser markdown --prose-wrap never",
       "eslint --fix",
       "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
