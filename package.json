@@ -1,6 +1,6 @@
 {
   "name": "react-demo",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "main": "index.js",
   "repository": "git@github.com:buleice/react-cli.git",
@@ -124,6 +124,7 @@
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "commitizen": "^4.2.4",
+    "conventional-changelog": "^3.1.25",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
@@ -208,9 +209,7 @@
       "git add"
     ],
     "*.{md,markdown}": [
-      "prettier --write --parser markdown --prose-wrap never",
-      "eslint --fix",
-      "git add"
+      "prettier --write --parser markdown --prose-wrap never"
     ]
   },
   "config": {
