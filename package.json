@@ -1,6 +1,6 @@
 {
   "name": "react-demo",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
@@ -12,7 +12,8 @@
     "start:https": "HTTPS=true node scripts/start.js",
     "lint": "eslint --fix ./",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -118,6 +119,7 @@
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "commitizen": "^4.2.4",
+    "conventional-changelog": "^3.1.25",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
@@ -128,7 +130,6 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
-    "ghooks": "^2.0.4",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.2",
@@ -195,7 +196,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -204,8 +205,13 @@
       "eslint --fix",
       "git add"
     ],
-    "src/*.{css,scss,less,json,html,md,markdown}": [
+    "src/*.{css,scss,less,json,html}": [
       "prettier --write",
+      "git add"
+    ],
+    "*.md, *.markdown": [
+      "prettier --write --parser markdown --prose-wrap never",
+      "eslint --fix",
       "git add"
     ]
   },

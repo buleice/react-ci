@@ -6,7 +6,7 @@
  * @FilePath: /react-demo/src/App.tsx
  * @Description:
  *
- * Copyright (c) 2022 by 用户/公司名, All Rights Reserved.
+ * Copyright (c) 2022 by hanchengji/公司名, All Rights Reserved.
  */
 import React from 'react';
 import logo from './logo.svg';
