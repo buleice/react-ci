@@ -70,7 +70,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "start:https": "HTTPS=true node scripts/start.js",
-    "lint": "node scripts/lint.js"
+    "lint": "eslint --fix ./"
   },
   "eslintConfig": {
     "extends": [

@@ -14,7 +14,9 @@ const tsEslint = {
 	'@typescript-eslint/no-useless-constructor': 1,
 	'@typescript-eslint/no-invalid-this': [0],
 	'@typescript-eslint/no-unused-vars': [2, { args: 'none' }], // 定义但是未被使用警告 过滤接口的警告
-	'@typescript-eslint/prefer-for-of': 1
+	'@typescript-eslint/prefer-for-of': 1,
+	'no-use-before-define': 'warn',
+	'@typescript-eslint/no-use-before-define': ['warn', { variables: false }],
 };
 
 const tsxEslint = {
@@ -111,7 +113,8 @@ const esEslint = {
 	'padded-blocks': [2, 'never'], // 17.5
 	'quote-props': [2, 'as-needed'], // 3.5
 	quotes: [1, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
-	'space-infix-ops': 2 // 17.4
+	'space-infix-ops': 2, // 17.4
+	'no-mixed-spaces-and-tabs': ['off', 'smart-tabs']
 };
 
 module.exports = {

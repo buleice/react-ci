@@ -1,4 +1,5 @@
 build/
+config/
 **/*.test.*
 README.md
 tsconfig.json
