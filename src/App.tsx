@@ -1,6 +1,16 @@
+/*
+ * @Author: hanchengji
+ * @Date: 2022-04-03
+ * @LastEditors: hanchengji
+ * @LastEditTime: 2022-04-03
+ * @FilePath: /react-demo/src/App.tsx
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by 用户/公司名, All Rights Reserved. 
+ */
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
