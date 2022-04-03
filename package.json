@@ -25,7 +25,6 @@
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
-    "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
@@ -70,7 +69,8 @@
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "start:https": "HTTPS=true node scripts/start.js"
+    "start:https": "HTTPS=true node scripts/start.js",
+    "lint": "node scripts/lint.js"
   },
   "eslintConfig": {
     "extends": [
@@ -111,6 +111,17 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.20",
     "@storybook/testing-library": "0.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.2",
     "sass": "^1.49.11",
     "webpack": "^5.71.0"
   },
@@ -168,6 +179,16 @@
   "babel": {
     "presets": [
       "react-app"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
     ]
   }
 }

@@ -1,0 +1,14 @@
+*-debug.log
+*-error.log
+*.md
+/dist
+/lib
+/package-lock.json
+node_modules
+/public
+/lib
+/dist
+/test
+/build
+/.storybook
+**.md
