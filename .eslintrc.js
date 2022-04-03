@@ -16,7 +16,7 @@ const tsEslint = {
 	'@typescript-eslint/no-unused-vars': [2, { args: 'none' }], // 定义但是未被使用警告 过滤接口的警告
 	'@typescript-eslint/prefer-for-of': 1,
 	'no-use-before-define': 'warn',
-	'@typescript-eslint/no-use-before-define': ['warn', { variables: false }],
+	'@typescript-eslint/no-use-before-define': ['warn', { variables: false }]
 };
 
 const tsxEslint = {
@@ -114,7 +114,11 @@ const esEslint = {
 	'quote-props': [2, 'as-needed'], // 3.5
 	quotes: [1, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
 	'space-infix-ops': 2, // 17.4
-	'no-mixed-spaces-and-tabs': ['off', 'smart-tabs']
+	'no-mixed-spaces-and-tabs': ['off', 'smart-tabs'],
+
+	// ...
+	'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+	'react-hooks/exhaustive-deps': 'warn' // 检查 effect 的依赖
 };
 
 module.exports = {
@@ -123,10 +127,7 @@ module.exports = {
 		es2021: true,
 		node: true
 	},
-	extends: [
-		'plugin:react/recommended',
-		'standard'
-	],
+	extends: ['plugin:react/recommended', 'standard', 'plugin:prettier/recommended'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
@@ -137,10 +138,7 @@ module.exports = {
 		sourceType: 'module',
 		experimentalObjectRestSpread: true
 	},
-	plugins: [
-		'react',
-		'@typescript-eslint'
-	],
+	plugins: ['react', 'react-hooks', '@typescript-eslint'],
 	// rules: {
 
 	//   /**
@@ -230,12 +228,10 @@ module.exports = {
 	rules: { ...esEslint, ...tsEslint, ...tsxEslint },
 	overrides: [
 		{
-			files: [
-				'**/*.stories.*'
-			],
+			files: ['**/*.stories.*'],
 			rules: {
 				'import/no-anonymous-default-export': 'off'
 			}
 		}
 	]
-}
+};
