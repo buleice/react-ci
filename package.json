@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "start:https": "HTTPS=true node scripts/start.js",
-    "lint": "eslint --fix",
+    "lint": "eslint --fix ./",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm -y",
     "release": "standard-version"
