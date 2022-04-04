@@ -127,7 +127,7 @@ module.exports = {
 		es2021: true,
 		node: true
 	},
-	extends: ['react-app', 'plugin:react/recommended', 'standard', 'plugin:prettier/recommended'],
+	extends: ['react-app', 'react-app/jest', 'plugin:react/recommended', 'standard', 'plugin:prettier/recommended'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
