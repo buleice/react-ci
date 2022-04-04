@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.3
+  '@reduxjs/toolkit': ^1.8.1
   '@storybook/addon-actions': ^6.4.20
   '@storybook/addon-essentials': ^6.4.20
   '@storybook/addon-interactions': ^6.4.20
@@ -34,9 +35,9 @@ specifiers:
   camelcase: ^6.2.1
   case-sensitive-paths-webpack-plugin: ^2.4.0
   commitizen: ^4.2.4
-  conventional-changelog: ^3.1.25
   css-loader: ^6.5.1
   css-minimizer-webpack-plugin: ^3.2.0
+  cz-conventional-changelog: ^3.3.0
   dotenv: ^10.0.0
   dotenv-expand: ^5.1.0
   eslint: ^7.32.0
@@ -72,6 +73,7 @@ specifiers:
   react-app-polyfill: ^3.0.0
   react-dev-utils: ^12.0.0
   react-dom: ^18.0.0
+  react-redux: ^7.2.8
   react-refresh: ^0.11.0
   react-router-dom: ^6.3.0
   resolve: ^1.20.0
@@ -154,6 +156,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
+  '@reduxjs/toolkit': 1.8.1_react-redux@7.2.8+react@18.0.0
   '@storybook/addon-actions': 6.4.20_c13207e15fed56fc7b9b70ab319ad0ff
   '@storybook/addon-essentials': 6.4.20_39dfb20af9b7e37ad404c08c8833b866
   '@storybook/addon-interactions': 6.4.20_74467c663cd4869e8d09be236daa1c57
@@ -167,7 +170,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.17.0_6da5f837f6da21a8347f2aaca31a901b
   '@typescript-eslint/parser': 5.17.0_eslint@7.32.0+typescript@4.6.3
   commitizen: 4.2.4
-  conventional-changelog: 3.1.25
+  cz-conventional-changelog: 3.3.0
   eslint: 7.32.0
   eslint-config-prettier: 8.5.0_eslint@7.32.0
   eslint-config-standard: 16.0.3_6a48346ff31498e55146b31bc801dc94
@@ -181,6 +184,7 @@ devDependencies:
   husky: 7.0.4
   lint-staged: 12.3.7
   prettier: 2.6.2
+  react-redux: 7.2.8_react-dom@18.0.0+react@18.0.0
   sass: 1.49.11
   standard-version: 9.3.2
 
@@ -2426,6 +2430,25 @@ packages:
     resolution: {integrity: sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg==}
     dev: true
 
+  /@reduxjs/toolkit/1.8.1_react-redux@7.2.8+react@18.0.0:
+    resolution: {integrity: sha512-Q6mzbTpO9nOYRnkwpDlFOAbQnd3g7zj7CtHAZWz5SzE5lcV97Tf8f3SzOO8BoPOMYBFgfZaqTUZqgGu+a0+Fng==}
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0 || ^18
+      react-redux: ^7.2.1 || ^8.0.0-beta
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-redux:
+        optional: true
+    dependencies:
+      immer: 9.0.12
+      react: 18.0.0
+      react-redux: 7.2.8_react-dom@18.0.0+react@18.0.0
+      redux: 4.1.2
+      redux-thunk: 2.4.1_redux@4.1.2
+      reselect: 4.1.5
+    dev: true
+
   /@rollup/plugin-babel/5.3.1_@babel+core@7.17.8+rollup@2.70.1:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
     engines: {node: '>= 10.0.0'}
@@ -4374,6 +4397,13 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/hoist-non-react-statics/3.3.1:
+    resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
+    dependencies:
+      '@types/react': 17.0.43
+      hoist-non-react-statics: 3.3.2
+    dev: true
+
   /@types/html-minifier-terser/5.1.2:
     resolution: {integrity: sha512-h4lTMgMJctJybDp8CQrxTUiiYmedihHWkjnF/8Pxseu2S6Nlfcy8kwboQ8yejh456rP2yWoEVm1sS/FVsfM48w==}
     dev: true
@@ -4495,6 +4525,15 @@ packages:
     dependencies:
       '@types/react': 17.0.43
     dev: false
+
+  /@types/react-redux/7.1.23:
+    resolution: {integrity: sha512-D02o3FPfqQlfu2WeEYwh3x2otYd2Dk1o8wAfsA0B1C2AJEFxE663Ozu7JzuWbznGgW248NaOF6wsqCGNq9d3qw==}
+    dependencies:
+      '@types/hoist-non-react-statics': 3.3.1
+      '@types/react': 17.0.43
+      hoist-non-react-statics: 3.3.2
+      redux: 4.1.2
+    dev: true
 
   /@types/react-syntax-highlighter/11.0.5:
     resolution: {integrity: sha512-VIOi9i2Oj5XsmWWoB72p3KlZoEbdRAcechJa8Ztebw7bDl2YmR+odxIqhtJGp1q2EozHs02US+gzxJ9nuf56qg==}
@@ -6756,23 +6795,6 @@ packages:
       conventional-changelog-preset-loader: 2.3.4
     dev: true
 
-  /conventional-changelog/3.1.25:
-    resolution: {integrity: sha512-ryhi3fd1mKf3fSjbLXOfK2D06YwKNic1nC9mWqybBHdObPd8KJ2vjaXZfYj1U23t+V8T8n0d7gwnc9XbIdFbyQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      conventional-changelog-angular: 5.0.13
-      conventional-changelog-atom: 2.0.8
-      conventional-changelog-codemirror: 2.0.8
-      conventional-changelog-conventionalcommits: 4.6.3
-      conventional-changelog-core: 4.2.4
-      conventional-changelog-ember: 2.0.9
-      conventional-changelog-eslint: 3.0.9
-      conventional-changelog-express: 2.0.6
-      conventional-changelog-jquery: 3.0.11
-      conventional-changelog-jshint: 2.0.9
-      conventional-changelog-preset-loader: 2.3.4
-    dev: true
-
   /conventional-commit-types/3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
     dev: true
@@ -7286,6 +7308,23 @@ packages:
 
   /cz-conventional-changelog/3.2.0:
     resolution: {integrity: sha512-yAYxeGpVi27hqIilG1nh4A9Bnx4J3Ov+eXy4koL3drrR+IO9GaWPsKjik20ht608Asqi8TQPf0mczhEeyAtMzg==}
+    engines: {node: '>= 10'}
+    dependencies:
+      chalk: 2.4.2
+      commitizen: 4.2.4
+      conventional-commit-types: 3.0.0
+      lodash.map: 4.6.0
+      longest: 2.0.1
+      word-wrap: 1.2.3
+    optionalDependencies:
+      '@commitlint/load': 16.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+    dev: true
+
+  /cz-conventional-changelog/3.3.0:
+    resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
@@ -9780,7 +9819,6 @@ packages:
 
   /immer/9.0.12:
     resolution: {integrity: sha512-lk7UNmSbAukB5B6dh9fnh5D0bJTOFKxVg2cyJWTYrWRfhLrLMBquONcUs3aFq507hNoIZEDDh8lb8UtOizSMhA==}
-    dev: false
 
   /immutable/4.0.0:
     resolution: {integrity: sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==}
@@ -13794,6 +13832,28 @@ packages:
       warning: 4.0.3
     dev: true
 
+  /react-redux/7.2.8_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-6+uDjhs3PSIclqoCk0kd6iX74gzrGc3W5zcAjbrFgEdIjRSQObdIwfx80unTkVUYvbQ95Y8Av3OvFHq1w5EOUw==}
+    peerDependencies:
+      react: ^16.8.3 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.17.8
+      '@types/react-redux': 7.1.23
+      hoist-non-react-statics: 3.3.2
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+      react-is: 17.0.2
+    dev: true
+
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
@@ -13944,6 +14004,20 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+
+  /redux-thunk/2.4.1_redux@4.1.2:
+    resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==}
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: 4.1.2
+    dev: true
+
+  /redux/4.1.2:
+    resolution: {integrity: sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw==}
+    dependencies:
+      '@babel/runtime': 7.17.8
+    dev: true
 
   /refractor/3.6.0:
     resolution: {integrity: sha512-MY9W41IOWxxk31o+YvFCNyNzdkc9M20NoZK5vq6jkv4I/uh2zkWcfudj0Q1fovjUQJrNewS9NMzeTtqPf+n5EA==}
@@ -14125,6 +14199,10 @@ packages:
   /requires-port/1.0.0:
     resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
     dev: false
+
+  /reselect/4.1.5:
+    resolution: {integrity: sha512-uVdlz8J7OO+ASpBYoz1Zypgx0KasCY20H+N8JD13oUMtPvSHQuscrHop4KbXrbsBcdB9Ds7lVK7eRkBIfO43vQ==}
+    dev: true
 
   /resolve-cwd/3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}
